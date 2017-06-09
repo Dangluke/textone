@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js">
+    </script>
+    <script src="demo-01.js"></script>
+
+    <link rel="stylesheet" href="demo-01.css">
+</head>
+<body>
+
+<div class="main">
+    <div class="move">我要改变</div>
+    <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=1154457707&site=qq&menu=yes"><img border="0" src="http://wpa.qq.com/pa?p=2:1154457707:53" alt="dianwo" title="dianwo"/></a>
+    <div id="article-content"></div>
+</div>
+<div class="img_div1" ></div>
+<script>
+    $(function(){ //官方解释：在dom文档载入完成后执行的函数
+        $('.move').move()
+    });
+    var offsleft=$('.move').offset().left;
+    //    alert(offsleft)
+</script>
+<script>
+    /*以下代码使用了jquery，如需使用，请引用jquery.js*/
+    var imgArr = new Array(["landing-page-boson_08.png"],['../images/landing-page-boson_08.png']);
+    //    $(".img_div1").css("backgroud-img", imgArr[0]);
+    $(".img_div1").html("<img src='" + imgArr[1] + "' alt='图片' />");
+</script>
+</body>
+</html>

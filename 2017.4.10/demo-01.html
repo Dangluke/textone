@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="shortcut icon bookmark" type="image/png" href="favicon.ico">
+		<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js">
+		</script>
+		<style>
+			body{background:url("https://unsplash.it/1600/900?random");}
+		</style>
+	</head>
+
+	<body>
+		<div class="sss"></div>
+		<br>
+		<div class="aaa"></div>
+		<br>
+		<div class="bbb"></div>
+		<br>
+		<div class="main"></div>
+	</body>
+	<script>
+        (function ($) {
+            var init=function (options) {
+                var ulstr="";
+                var uulstr="";
+                var hhtmlstr="";
+                var htmlstr=''+
+                    '<ul>'+
+                    '|bbname|'+
+                    '</ul>';
+                for(i in bb) {
+                    ulstr= "" +
+                        "<li>" +
+                        '|ullist|'+
+                        "</li>";
+                    console.log(bb[i]);
+                    var listr="";
+                    for(k in bb[i]){
+                        listr+=""+
+                            "<div >"+
+                            	bb[i][k]
+                        	'</div>'
+                        console.log(bb[i][k]);
+
+                    }
+                    uulstr += ulstr.replace('|ullist|',listr);
+                };
+                hhtmlstr=htmlstr.replace('|bbname|',uulstr);
+                $('.sss').html(hhtmlstr);
+            };
+            $.fn.sname=function (options) {
+                init(options);
+            };
+        })(jQuery);
+
+        var bb={
+            a: {
+                a1:"www.runoob.com",
+                a2:"m.runoob.com",
+                a3:"c.runoob.com"
+            },
+            b: {
+                b1:"www.baidu.com",
+                b2:"m.baidu.com",
+                b3:"c.baidu.com"
+            },
+            c: {
+                c1:"www.taobao.com",
+                c2:"m.taobao.com",
+                c3:"c.taobao.com"
+            }
+        };
+        $('.sss').sname(bb);
+	</script>
+
+
+	<script>
+        $(function () {
+            var aa={
+                a: {
+                    a1:"www.runoob.com",
+                    a2:"m.runoob.com",
+                    a3:"c.runoob.com"
+                },
+                b: {
+                    b1:"www.baidu.com",
+                    b2:"m.baidu.com",
+                    b3:"c.baidu.com"
+                },
+                c: {
+                    c1:"www.taobao.com",
+                    c2:"m.taobao.com",
+                    c3:"c.taobao.com"
+                }
+            };
+            var ulstr="";
+            var uulstr="";
+            var hhtmlstr="";
+            var htmlstr=''+
+					'<ul>'+
+						'|bbname|'+
+					'</ul>';
+            for(i in aa) {
+                ulstr='<li>'
+						+'|ullist|'+
+					"</li>";
+                var listr="";
+                for(k in aa[i]){
+                    listr+='<div>'
+							+aa[i][k]+
+						'</div>';
+                }
+                uulstr += ulstr.replace('|ullist|',listr);
+            };
+            hhtmlstr=htmlstr.replace('|bbname|',uulstr);
+            $('.aaa').html(hhtmlstr);
+
+        })
+
+	</script>
+
+
+
+	<script>
+		$(function () {
+            var bb={
+                a: {
+                    a1:"www.runoob.com",
+                    a2:"m.runoob.com",
+                    a3:"c.runoob.com"
+                },
+                b: {
+                    b1:"www.baidu.com",
+                    b2:"m.baidu.com",
+                    b3:"c.baidu.com"
+                },
+                c: {
+                    c1:"www.taobao.com",
+                    c2:"m.taobao.com",
+                    c3:"c.taobao.com"
+                }
+            };
+            var ulstr="";
+            var uulstr="";
+            var hhtmlstr="";
+            var htmlstr=''+
+                '<ul>'+
+               	 '|bbname|'+
+                '</ul>';
+            for(i in bb) {
+                ulstr= "" +
+                    "<li>" +
+                    	'|ullist|'+
+                    "</li>";
+                console.log(bb[i]);
+                var listr="";
+                for(k in bb[i]){
+                    listr+=""+
+                        '<div>'+
+                       	 	bb[i][k]
+                        '</div>'
+                    console.log(bb[i][k]);
+
+                }
+                uulstr += ulstr.replace('|ullist|',listr);
+            };
+             hhtmlstr=htmlstr.replace('|bbname|',uulstr);
+            $('.bbb').html(hhtmlstr);
+
+
+        })
+
+	</script>
+
+
+
+
+	<script>
+		$(function() {
+//	var data=[{name:"a",age:12},{name:"b",age:11},{name:"c",age:13},{name:"d",age:14}];
+//                  for(var o in data){
+//                        console.log(o);
+//                        console.log(data[o]);
+//					    console.log("text:"+data[o].name+" value:"+data[o].age );
+//				  }
+            var result = [
+                {name:"a",age:12},
+				{name:"b",age:11},
+				{name:"c",age:13},
+				{name:"d",age:14}
+				];
+//			console.log(result[0].name);
+			var htmlstr = "";
+			htmlstr += "" +
+				"<div class='content'>" +
+					"<ul>" +
+						'|ulst|' +
+					"</ul>" +
+				"</div>";
+//			console.log(htmlstr);
+			var ulstr = "";
+			for(i in result) {
+				ulstr += "" +
+						"<li>" +
+							'|ulstr|' +
+						"</li>";
+				var listr = "";
+				for(k in result) {
+					listr += "" +
+						"<div>" +
+							 +
+						"</div>"
+				};
+			};
+//			console.log(ulstr);
+			var lihtml = ulstr.replace('|list|', listr);
+			var html = htmlstr.replace('|ulst|', ulstr);
+//			console.log(html);
+			$('.main').html(html)
+		})
+	</script>
+
+</html>

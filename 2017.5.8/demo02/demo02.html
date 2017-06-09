@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="source" draggable="true">a元素</div>
+<div id="process">b元素</div>
+<div id="target">c元素</div>
+
+<script>
+    var source = document.getElementById('source'),     // a元素
+        process = document.getElementById('process'),   // b元素
+        target = document.getElementById('target');     // c元素
+
+    source.addEventListener('dragstart',function(ev){   // dragstart事件由a元素产生
+        console.log('a元素开始被拖动');
+    },false)
+
+    process.addEventListener('dragenter',function(ev){  // dragenter事件由b元素产生
+        console.log('a元素开始进入b元素');
+    },false)
+    process.addEventListener('dragleave',function(ev){  // dragleave事件由b元素产生
+        console.log('a元素离开b元素');
+    },false)
+
+    target.addEventListener('drop',function(ev){        // drop事件由c元素产生
+        console.log('a元素拖放到c元素了');
+        ev.preventDefault();
+    },false)
+    document.ondragover = function(e){e.preventDefault();}
+</script>
+</body>
+</html>

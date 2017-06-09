@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>常用检验方法</title>
+		<script src="https://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js">
+		</script>
+		<style>
+			#up{
+				position: fixed;
+				top: 600px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<form action="">
+			<input class="asd" type="text" placeholder="请输入手机号" />
+			<button class="qwe">alert</button>
+		</form>
+		<div style="background-color: #87CEEB;width: 100%;height: 2000px;">
+			<div id="up" style="width: 100px;height: 100px;background-color: blueviolet;"></div>
+		</div>
+		<script>
+			$('.qwe').click(function() {
+				checkPhone();
+			});
+
+			function checkPhone() {
+				var phone = $('.asd').val();
+				if(!(/^1[34578]\d{9}$/.test(phone))) {
+					alert("手机号码有误，请重填");
+					return false;
+				} else {
+					alert('good job')
+				}
+			}
+		</script>
+		<script>
+			$(function() {
+				$(window).scroll(function() {
+					var $scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop; //兼容浏览器
+					if($scrollTop > 200) { //滚动高度可调，也可以为某个div的scrollTop，需要的可以自行修改
+						$("#up").show();
+					} else { $("#up").hide(); }
+				});
+				$("#up").click(function() {
+					$('body,html').animate({ scrollTop: 0 }, 500);
+					return false;
+				});
+			});
+		</script>
+		<script>
+			var arr=[0,2,5,10,5,2,3];
+			var arr1=[];
+			for(var i=0;i<arr.length;i++){
+				if(arr1.indexOf(arr[i])<0){
+					arr1.push(arr[i])
+				}
+			};
+			console.log(arr1)
+			
+		</script>
+		<script>
+			var s=parseInt(10*Math.random());
+			console.log(s)
+		</script>
+	</body>
+
+</html>

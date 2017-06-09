@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js">
+    </script>
+</head>
+<body>
+<div class="sss">
+</div>
+<div class="alert">
+    <div class="bbb">
+        <div class="lll">click</div>
+    </div>
+</div>
+<div class="cool"></div>
+
+<script>
+    $('.lll').click(function () {
+        alert($(this).parents().html())
+    })
+</script>
+<script>
+    function shuju(dataName) {
+        var shuju1
+        if(dataName=='地区'){
+             shuju1={
+                "江苏":['泰州','徐州','宿迁'],
+                "河南":['郑州','安阳','南阳'],
+                "福建":['泉州','厦门','福州']
+            };
+            neirong()
+        }else if(dataName=='范围'){
+             shuju1={
+                "0-200m":['新意','慢慢','将就'],
+                "200m-400m":['变脸','篱笆','岸边'],
+                "大于400m":['所得','细化','梦雨']
+            };
+            neirong()
+        }else if(dataName=='美食'){
+             shuju1={
+                "西餐":['葡萄酒','拉菲','咖喱'],
+                "中国":['浏阳河','五粮液','茅台'],
+            };
+            neirong()
+        }
+        function neirong() {
+            var ss="";
+            var city="";
+            var qq="";
+            var province="" +
+                "<ul class='con_ul' data-name='area'>"+
+                '|ss|'+
+                "</ul>"
+            for(i in shuju1){
+                ulstr="" +
+                    "<li class='con_li'>" +
+                    "<p class='con_p'>" +
+                    i +
+                    "</p>"+
+                    "<ul class='con_li_ul'>" +
+                    "|city|" +
+                    "</ul>"+
+                    "</li>";
+                var city="";
+                for(k in shuju1[i]){
+                    city+="" +
+                        "<li class='con_li_li'>" +
+                        shuju1[i][k] +
+                        "</li>"
+
+                };
+                ss+=ulstr.replace('|city|',city)
+            };
+            qq=province.replace('|ss|',ss)
+            $('.cool').html(qq)
+        }
+
+    }
+    shuju('范围')
+</script>
+<script>
+
+    var bb={
+        a: {
+            a1:"www.runoob.com",
+            a2:"m.runoob.com",
+            a3:"c.runoob.com"
+        },
+        b: {
+            b1:"www.baidu.com",
+            b2:"m.baidu.com",
+            b3:"c.baidu.com"
+        },
+        c: {
+            c1:"www.taobao.com",
+            c2:"m.taobao.com",
+            c3:"c.taobao.com"
+        }
+    };
+            var ulstr="";
+            var uulstr="";
+            var hhtmlstr="";
+            var htmlstr=''+
+                '<ul>'+
+                    '|bbname|'+
+                '</ul>';
+            for(i in bb) {
+                ulstr= "" +
+                    "<li >" +
+                        '|ullist|'+
+                    "</li>";
+                console.log(bb[i].a);
+                var listr="";
+                for(k in bb[i]){
+                    listr+=""+
+                        "<div class="+bb[i][k]+">"+
+                            bb[i][k]+
+                        '</div>'
+                    console.log(bb[i][k]);
+
+                }
+                uulstr += ulstr.replace('|ullist|',listr);
+            };
+            hhtmlstr=htmlstr.replace('|bbname|',uulstr);
+            $('.sss').html(hhtmlstr);
+
+
+</script>
+</body>
+</html>

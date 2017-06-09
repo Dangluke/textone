@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>原生js双向绑定及其应用</h1>
+<div class="js-2-1section2 col-sm-10 col-xs-10">
+    <div><input type="text" data-bind-1="peopleName"  id="text1"/>
+        <!--data-bind-1="peopleName" 原生js双向绑定的格式-->
+    </div>
+    <div>
+        <input  type="text" data-bind-2="killName" id="text2" />
+        <button class="btn btn-primary" onclick="randomGroup()">随机词组</button>
+    </div>
+    <p data-bind-1="peopleName"></p>
+    <p data-bind-2="killName"></p>
+</div>
+<script src="demo02.js">
+
+</script>
+</body>
+</html>

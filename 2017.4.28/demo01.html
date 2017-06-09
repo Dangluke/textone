@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{margin: 0;padding: 0;}
+        h1{margin: 50px auto;width: 300px;}
+        video{
+            position: fixed;
+            z-index: -1;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+        /*object-fit:cover 的裁剪方式和 background-size:cover 的完全相同，不过它是用来为 imgs、videos 和其他的媒体标签设置样式的，而不是给背景图片设置样式。*/
+    </style>
+</head>
+<body>
+<video autoplay loop poster="http://yuxiedu.org.cn/index3/ppp.png">
+    <!--自动播放  循环播放  带有预览图-->
+    <source src="http://yuxiedu.org.cn/index3/pp.mp4 " type="video/mp4"></source>
+    <source src="http://yuxiedu.org.cn/index3/pp.ogg" type="video/ogg"></source>
+</video>
+<h1>用视频当背景</h1>
+<script>
+    localStorage.setItem('name1','Hello World');
+    localStorage.setItem('name2','Hello Linxin');
+    console.log(localStorage.key(0));
+    localStorage.removeItem('name');
+    console.log(localStorage.getItem('name'));
+    for (var i = 0; i < 5; i++) {
+        (function(i) {
+            setTimeout(function() {
+                console.log(i);
+            }, i * 1000);
+        })(i);
+    }
+</script>
+</body>
+</html>

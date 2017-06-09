@@ -1,0 +1,172 @@
+<!DOCTYPE>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>弹幕</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.container {
+				width: 100%;
+				height: 100%;
+				background-color: #f2f2f2;
+			}
+			
+			.barrageBtn {
+				position: absolute;
+				bottom: 0px;
+				padding: 5px 0px;
+				height: 50px;
+				width: 100%;
+				background-color: #f3f3f3;
+			}
+			
+			.wordContainer {
+				width: 60%;
+				float: left;
+				border: 1px solid #000;
+				border-radius: 5px;
+				height: 35px;
+			}
+			
+			#words {
+				width: 80%;
+				height: 35px;
+				border: none;
+				outline: none;
+				margin-left: 5px;
+			}
+			
+			.emotion {
+				float: right;
+				line-height: 35px;
+				font-size: 18px;
+				margin-right: 5px;
+				color: #DD04F7;
+				cursor: pointer;
+			}
+			
+			.btn {
+				float: left;
+				width: 120px;
+				height: 37px;
+				margin-left: 15px;
+				border-radius: 5px;
+				background-color: #C34040;
+				text-align: center;
+				line-height: 37px;
+				color: #fff;
+				font-size: 23px;
+				cursor: pointer;
+			}
+			
+			.barrageConatiner {
+				width: 100%;
+				height: 40%;
+			}
+			
+			.message {
+				width: auto;
+				height: 30px;
+				position: absolute;
+				overflow: hidden;
+				color: #000;
+				font-size: 20px;
+				line-height: 30px;
+				cursor: pointer;
+				white-space: nowrap;
+			}
+			
+			.message img {
+				vertical-align: middle;
+			}
+			
+			#facebox {
+				bottom: 60px !important;
+				top: auto !important;
+				right: 40% !important;
+				left: auto !important;
+				background-color: #fff;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="barrageConatiner">
+				<!-- <span class="message" style="top:10px;">hhhhh<img src="arclist/14.gif" border="0" /></span> -->
+			</div>
+			<div class="barrageBtn">
+				<div class="wordContainer">
+					<input type="text" id="words" placeholder="请在这里输入要说的话~~">
+					<a class="emotion">表情</a>
+				</div>
+
+				<a class="btn">飞屏</a>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery.qqFace.js"></script>
+		<script>
+			$(function() {
+				var color = ["#F70404", "#04F70B", "#0492F7", "#F304F7", "#F70431", "#DD04F7", "#7804F7"];
+				var containerW = parseInt($(document).width());
+				var containerH = parseInt($(".barrageConatiner").height());
+
+				$(".btn").bind("click", addBarrage);
+
+				function addBarrage() {
+					var word = $("#words").val();
+					if(word.indexOf("[em_") != -1) {
+						var reg = /\[([^\]]+)\]/g;
+						value = replace_em(word);
+						console.log(value)
+					}
+
+					var marginTop = parseInt(containerH * (Math.random()));
+					var num = parseInt(color.length * (Math.random()));
+
+					var barrageSpan = '<span class="message" style="top:' + marginTop + ';right:0;color:' + color[num] + '">' + value + '</span>';
+
+					$("#words").val("");
+					$(".barrageConatiner").append(barrageSpan);
+					var barrageSpan = $(".barrageConatiner span:last-child");
+					var speedArr = [10000, 8000, 5000];
+					var speed = speedArr[parseInt(speedArr.length * (Math.random()))];
+					barrageSpan.stop().animate({
+						"right": containerW + 200
+					}, speed, "linear", function() {
+						$(this).remove();
+					});
+				}
+
+				function replace_em(str) {
+
+					str = str.replace(/\</g, '&lt;');
+					str = str.replace(/\>/g, '&gt;');
+					str = str.replace(/\n/g, '<br/>');
+					str = str.replace(/\[em_([0-9]*)\]/g, '<img src="arclist/$1.gif" border="0" />');
+					return str;
+
+				}
+				document.onkeydown = function(e) {
+					if(e.keyCode == 13) {
+						addBarrage();
+					}
+				}
+				$('.emotion').qqFace({
+
+					id: 'facebox',
+					assign: 'words',
+					path: 'arclist/' //表情存放的路径
+
+				});
+			});
+		</script>
+	</body>
+
+</html>

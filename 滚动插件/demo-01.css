@@ -1,0 +1,14 @@
+.main{
+    width: 500px;
+    height: 2000px;
+    background-color: #00b3ee;
+    margin: 0 auto;
+    position: relative;
+}
+.move{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: #d7a37a;
+    /*left: -100px;*/
+}

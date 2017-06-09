@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js">
+    </script>
+    <script src="demo-01.js"></script>
+
+    <link rel="stylesheet" href="demo-01.css">
+</head>
+<body>
+
+<div class="main">
+    <div class="move">我要改变</div>
+
+    <div id="article-content"></div>
+</div>
+<script>
+    $(function(){ //官方解释：在dom文档载入完成后执行的函数
+
+        $("#article-content").userCp();
+        $('.move').move()
+    });
+</script>
+</body>
+</html>

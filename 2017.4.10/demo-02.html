@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js">
+    </script>
+</head>
+<body>
+<div class="sss">
+</div>
+<div class="alert">
+    <div class="bbb">
+        <div class="lll">click</div>
+    </div>
+</div>
+
+<script>
+    $('.lll').click(function () {
+        alert($(this).parents().html())
+    })
+</script>
+<script>
+    (function ($) {
+        var init=function (options) {
+            var ulstr="";
+            var uulstr="";
+            var hhtmlstr="";
+            var htmlstr=''+
+                '<ul>'+
+                    '|bbname|'+
+                '</ul>';
+            for(i in options) {
+                ulstr= "" +
+                    "<li class="+options[i]+">" +
+                        '|ullist|'+
+                    "</li>";
+                console.log(options[i].a);
+                var listr="";
+                for(k in options[i]){
+                    listr+=""+
+                        "<div>"+
+                        options[i][k]+
+                        '</div>'
+                    console.log(options[i][k]);
+
+                }
+                uulstr += ulstr.replace('|ullist|',listr);
+            };
+            hhtmlstr=htmlstr.replace('|bbname|',uulstr);
+            $('.sss').html(hhtmlstr);
+        };
+        $.fn.sname=function (options) {
+            init(options);
+        };
+    })(jQuery);
+
+    var bb={
+        a: {
+            a1:"www.runoob.com",
+            a2:"m.runoob.com",
+            a3:"c.runoob.com"
+        },
+        b: {
+            b1:"www.baidu.com",
+            b2:"m.baidu.com",
+            b3:"c.baidu.com"
+        },
+        c: {
+            c1:"www.taobao.com",
+            c2:"m.taobao.com",
+            c3:"c.taobao.com"
+        }
+    };
+    $('.sss').sname(bb);
+</script>
+</body>
+</html>

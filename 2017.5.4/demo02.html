@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>index</title>
+    <meta charset="utf-8">
+    <meta name="Author" content="">
+    <style type='text/css'>
+        * { margin: 0; padding: 0; }
+        #header { width: 1200px; height: 160px; margin: 0 auto;background:#666; }
+        #content { width: 1200px; height: 1820px; margin: 0 auto; }
+        #container { width: 1200px; height: 737px; margin: 0 auto; }
+        #nav { width: 100%; min-width: 1200px; border-bottom: 1px solid #000; height: 50px; line-height: 50px; background: #ffffff;margin-top:10px; }
+        #nav.fixed { position: fixed; top: 0; }
+        #nav ul { width: 1200px; margin: 0 auto; height: 50px; }
+        #nav ul li { list-style: none; float: left; font-family: 'Microsoft yahei'; font-size: 16px;margin-right:5px; }
+        #nav ul li a { color: #000000; text-decoration: none; padding: 0 20px; }
+        #nav ul li a:hover { color: #000; }
+        #nav ul li.l2 a { color: #000; font-weight: bold; }
+        input.red{
+            color:#f00;
+        }
+    </style>
+    <script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body style="height:3000px;">
+<div id='header'></div>
+<div id="nav">
+    <ul>
+        <li><img src="http://iph.href.lu/90x50?text=%E6%A0%87%E9%A2%98" alt=""></li>
+        <li><img src="http://iph.href.lu/90x50?text=%E6%A0%87%E9%A2%98" alt=""></li>
+        <li><img src="http://iph.href.lu/90x50?text=%E6%A0%87%E9%A2%98" alt=""></li>
+        <li><img src="http://iph.href.lu/90x50?text=%E6%A0%87%E9%A2%98" alt=""></li>
+        <li><img src="http://iph.href.lu/90x50?text=%E6%A0%87%E9%A2%98" alt=""></li>
+        <li><img src="http://iph.href.lu/90x50?text=%E6%A0%87%E9%A2%98" alt=""></li>
+        <li><img src="http://iph.href.lu/90x50?text=%E6%A0%87%E9%A2%98" alt=""></li>
+        <li><img src="http://iph.href.lu/90x50?text=%E6%A0%87%E9%A2%98" alt=""></li>
+        <li><img src="http://iph.href.lu/90x50?text=%E6%A0%87%E9%A2%98" alt=""></li>
+        <li><img src="http://iph.href.lu/90x50?text=%E6%A0%87%E9%A2%98" alt=""></li>
+        <li><img src="http://iph.href.lu/90x50?text=%E6%A0%87%E9%A2%98" alt=""></li>
+    </ul>
+</div>
+<div id="container"></div>
+<div id="content">
+    <select>
+        <option>left</option>
+        <option selected>right</option>
+        <option>above</option>
+        <option>below</option>
+    </select>
+    <video autoplay="true" loop="true" width="480" height="270">
+        <source src="http://www.tofei.cc/comments/4_BlowVido/video/BigBuckBunny_640x360.mp4">
+        <source src="http://www.tofei.cc/comments/4_BlowVido/video/BigBuckBunny_640x360.ogv">
+    </video>
+    <style>
+        video{
+            -webkit-box-reflect:right;
+        }
+        .left{
+            margin:0 0 0 480px;
+        }
+         .above{
+               margin:270px 0 0 0;
+            }
+        select{
+            width:120px;
+            height:30px;
+            background:#FF6100;
+            color:white;
+            margin:15px;
+            border: 1px solid #999999;
+            display:block;
+        }
+    </style>
+    <script>
+        var video = document.querySelector('video');
+        var select = document.querySelector('select');
+        select.addEventListener('change', function() {
+            video.style.webkitBoxReflect = this.value;
+            video.className = this.value;
+        });
+    </script>
+    <input class="red" readonly unselectable="on" value="我说我是红色的">
+
+
+</div>
+
+<script type="text/javascript">
+    (function () {
+        var $window = $(window);
+        var $nav = $('#nav');
+        var navTop = $nav.offset().top + $nav.height();
+        $window.scroll(function () {
+            var scrollTop = $(document).scrollTop();
+            if (scrollTop >= navTop) {
+                if (!$nav.hasClass('fixed')) {
+                    $nav.addClass('fixed').css('display', 'none').slideDown(300);
+                }
+            } else {
+                $nav.removeClass('fixed');
+            }
+            ;
+        });
+    })();
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .text{
+            width: 200px;
+            height: 150px;
+            background: #FFC727;
+            border-radius: 100px / 75px;
+        }
+        img{
+            clip-path: ellipse(75% 25%);
+            transition: 1s clip-path;
+        }
+        img:hover{
+            clip-path: ellipse(50% 50%);
+        }
+    </style>
+</head>
+<body>
+<div class="text"></div>
+<img src="newqqq_02.jpg" alt="">
+<script>
+    var currentTime = Date.parse(new Date());
+    console.log(currentTime)
+</script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <style>
+        *{
+            padding:0px;
+            margin:0px;
+            list-style: none;
+            font-style:normal;
+            font-family: arial;
+            font-family: Microsoft YaHei,arial;
+        }
+        .twoRankedBox{
+            margin:6px 8px;
+            overflow: hidden;
+            padding-bottom:25px;
+        }
+        .twoRankedBox ul{
+            width:49%;
+            float: left;
+        }
+        .twoRankedBox ul:last-child{
+            margin-left:2%;
+        }
+        .twoRankedBox ul li{
+            padding:5px;
+            margin-bottom:6px;
+            padding-bottom:8px;
+            background-color: #FFFFFF;
+        }
+        .twoRankedBox ul li p:first-child{
+            padding-top:0px;
+        }
+        .twoRankedBox ul li p{
+            padding-top:4px;
+        }
+        .product_picture img{
+            display: block;
+            width:100%;
+        }
+        .product_np{
+            overflow: hidden;
+            line-height:20px;
+        }
+        .product_np a{
+            display: block;
+            overflow:hidden;
+            text-overflow:ellipsis;
+            white-space:nowrap;
+        }
+        .product_np a:first-child{
+            font-size:0.9em;
+            color:#58b7e3;
+            width:65%;
+            float: left;
+        }
+        .product_np a:last-child{
+            font-size:0.8em;
+            color:#f00;
+            float: right;
+            width:35%;
+            text-align: right;
+        }
+        .product_ie{
+            font-size:0.8em;
+            color:#777;
+        }
+    </style>
+</head>
+<body>
+<div class="twoRankedBox">
+    <ul class="BoxLeft">
+
+    </ul>
+
+    <ul class="BoxRight">
+
+    </ul>
+</div>
+<script>
+    //模拟JSON数据
+    var json = {
+        data:[
+            {name:'花瓣小小裙花瓣',price:'128',details:'质量超好特别的舒适，夏天首选。',src:'../../images/landing-page-boson_08.png'},
+            {name:'时尚牛仔短裤',price:'298',details:'质量超好特别的舒适，夏天首选。',src:'../../images/landing-page-boson_08.png'},
+            {name:'白色婚纱',price:'668',details:'质量超好特别的舒适，夏天首选。',src:'../../images/landing-page-boson_08.png'},
+            {name:'绿色防晒衣',price:'218',details:'质量超好特别的舒适，夏天首选。',src:'../../images/landing-page-boson_08.png'},
+            {name:'格纹小短裙',price:'88',details:'质量超好特别的舒适，夏天首选。',src:'../../images/landing-page-boson_08.png'},
+            {name:'复古旗袍',price:'128',details:'质量超好特别的舒适，夏天首选。',src:'../../images/landing-page-boson_53.png'},
+            {name:'花瓣小小裙花瓣',price:'128',details:'质量超好特别的舒适，夏天首选。',src:'../../images/landing-page-boson_08.png'},
+            {name:'时尚牛仔短裤',price:'298',details:'质量超好特别的舒适，夏天首选。',src:'../../images/landing-page-boson_08.png'},
+            {name:'白色婚纱',price:'668',details:'质量超好特别的舒适，夏天首选。',src:'../../images/landing-page-boson_08.png'},
+            {name:'绿色防晒衣',price:'218',details:'质量超好特别的舒适，夏天首选。',src:'../../images/landing-page-boson_08.png'},
+            {name:'格纹小短裙',price:'118',details:'质量超好特别的舒适，夏天首选。',src:'../../images/landing-page-boson_53.png'},
+            {name:'格纹小短裙',price:'118',details:'质量超好特别的舒适，夏天首选。',src:'../../images/landing-page-boson_53.png'},
+            {name:'格纹小短裙',price:'118',details:'质量超好特别的舒适，夏天首选。',src:'../../images/landing-page-boson_53.png'},
+            {name:'格纹小短裙',price:'118',details:'质量超好特别的舒适，夏天首选。',src:'../../images/landing-page-boson_53.png'},
+            {name:'格纹小短裙',price:'118',details:'质量超好特别的舒适，夏天首选。',src:'../../images/landing-page-boson_08.png'},
+            {name:'格纹小短裙',price:'118',details:'质量超好特别的舒适，夏天首选。',src:'../../images/landing-page-boson_08.png'},
+            {name:'格纹小短裙',price:'118',details:'质量超好特别的舒适，夏天首选。',src:'../../images/landing-page-boson_08.png'},
+            {name:'格纹小短裙',price:'118',details:'质量超好特别的舒适，夏天首选。',src:'../../images/landing-page-boson_53.png'},
+            {name:'格纹小短裙',price:'118',details:'质量超好特别的舒适，夏天首选。',src:'../../images/landing-page-boson_08.png'},
+            {name:'格纹小短裙',price:'118',details:'质量超好特别的舒适，夏天首选。',src:'../../images/landing-page-boson_08.png'},
+        ]
+    }
+    alert($('.BoxLeft').height() )
+
+    //模拟数据导入
+    for(var i=0;i<json.data.length;i++){
+        var chtml = '<li><p class="product_picture"><img src="'+json.data[i].src+'"></p>'
+            +'<p class="product_np"><a>'+json.data[i].name+'</a><a>￥'+json.data[i].price+'</a></p>'
+            +'<p class="product_ie">'+json.data[i].details+'</p></li>'
+
+        if($('.BoxLeft').height() < $('.BoxRight').height()){
+            $('.BoxLeft').append(chtml);
+        }else{
+            $('.BoxRight').append(chtml);
+        }
+    }
+</script>
+<div>123</div>
+<script>
+    $.fn.myPlugin = function(options) {
+        var defaults = {
+            'color': 'red',
+            'fontSize': '12px'
+        };
+        var settings = $.extend(defaults, options);
+        return this.css({
+            'color': settings.color,
+            'fontSize': settings.fontSize
+        });
+    }
+    $('div').myPlugin({
+        'color': '#2C9929'
+    });
+</script>
+</body>
+</html>

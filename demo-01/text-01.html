@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="text-01.js"></script>
+
+    <style>
+        .asd{
+            height: 2000px;
+            width: 100%;
+            background-color: #d7a37a;
+            /*position: relative;*/
+        }
+        .qwe{
+            width: 100px;
+            height: 100px;
+            background-color: #00b3ee;
+        }
+    </style>
+</head>
+<body>
+<div class="asd">
+    自己第一次写插件，还附有面试题。自己找哈在哪里
+    <div class="qwe"></div>
+</div>
+
+<script>
+    $(window).ready(function () {
+        $('.qwe').smove({
+            obj:'.qwe',
+            divBegin:{x:200,y:235},
+            divEnd:{x:700,y:235},
+            start:{begin:0,end:50}
+        });
+    })
+</script>
+<script>
+    var arr = new Array(100)
+    for (var i = 0; i < arr.length; i++) {
+        arr[i] = i;
+    }
+    console.log(arr); // [0, 1, ..., 99]
+</script>
+</body>
+</html>

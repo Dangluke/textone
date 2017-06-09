@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+
+		<style>
+			.huoqu {
+				border: none;
+				background-color: skyblue;
+				height: 30px;
+				color: white;
+				width: 90px;
+			}
+			
+			.mesg {
+				background: #E6E6E6;
+				color: #818080;
+				border: 1px solid #CCCCCC;
+				height: 30px;
+				width: 90px;
+			}
+			
+			.scroll {
+				height: 1000px;
+				width: 100%;
+				background-color: salmon;
+			}
+			/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+			
+			::-webkit-scrollbar {
+				width: 10px;
+				height: 16px;
+				background-color: #F5F5F5;
+			}
+			/*定义滚动条轨道 内阴影+圆角*/
+			
+			::-webkit-scrollbar-track {
+				-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+				border-radius: 10px;
+				background-color: #F5F5F5;
+			}
+			/*定义滑块 内阴影+圆角*/
+			
+			::-webkit-scrollbar-thumb {
+				border-radius: 10px;
+				-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+				background-color: #555;
+			}
+		</style>
+	</head>
+
+	<body>
+		<button class="huoqu">获取验证码</button>
+		<input type="text" class="time" />
+		<div class="scroll"></div>
+		<script>
+			$(function() {
+				var vocode = true;
+				$('.huoqu').click(function() {
+					var code = $(this);
+					var time = 30;
+					if(vocode) {
+						vocode = false;
+						code.addClass('mesg');
+						var t = setInterval(function() {
+							time--;
+							code.text(time + '秒');
+							if(time == 0) {
+								clearInterval(t);
+								vocode = true;
+								code.text('重新获取').removeClass('mesg');
+							}
+						}, 1000)
+					}
+
+				})
+			})
+		</script>
+	</body>
+
+</html>
